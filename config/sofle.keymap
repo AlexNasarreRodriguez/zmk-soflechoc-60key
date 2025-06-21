@@ -135,7 +135,7 @@
 &kp ESC  &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                 &kp H   &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI RS(MINUS)  &kp ENTER
 &none    &kp Z           &kp X           &kp C               &kp V             &kp B   &kp PAGE_UP    &kp PAGE_DOWN  &kp N   &kp M              &kp COMMA            &kp DOT         &kp SLASH                &kp GRAVE
                          &kp HOME        &kp LEFT            &kp UP_ARROW      &mo 1   &kp SPACE      &kp BACKSPACE  &mo 2   &kp DOWN           &kp RIGHT            &kp END
-      k      >;
+            >;
         };
 
         lower_layer {
