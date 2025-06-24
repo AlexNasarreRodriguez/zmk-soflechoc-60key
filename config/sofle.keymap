@@ -77,7 +77,7 @@
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
-            #binding-cells = <2>;33
+            #binding-cells = <2>;
             tapping-term-ms = <280>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
