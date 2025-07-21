@@ -39,6 +39,16 @@
             bindings = <&kp LS(TAB)>;
             key-positions = <39 40>;
         };
+
+        f6combo {
+            bindings = <&kp F6>;
+            key-positions = <19 20>;
+        };
+
+        shift_f10combo {
+            bindings = <&kp LS(F10)>;
+            key-positions = <15 16>;
+        };
     };
 
     /*
