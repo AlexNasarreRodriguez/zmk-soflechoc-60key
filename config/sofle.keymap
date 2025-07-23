@@ -19,7 +19,6 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
 
 &mmv {
-    trigger-period-ms = <0>;
     delay-ms = <0>;
     time-to-max-speed-ms = <80>;
     acceleration-exponent = <1>;
