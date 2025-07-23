@@ -1,0 +1,25 @@
+# Archivos de configuración local de mapeo de teclado
+# Estos archivos contienen personalizaciones específicas del usuario
+# y no deben subirse al repositorio para permitir configuraciones individuales
+
+config/keymap_es_mapping.txt
+config/spanish_special_chars.txt
+config/english_special_chars.txt
+
+# Archivos temporales y de compilación
+build/
+.west/
+*.tmp
+*.bak
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Archivos de configuración del IDE
+.vscode/
+.idea/
+*.sublime-*
