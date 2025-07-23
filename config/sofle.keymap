@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
 #define LOWER 1
@@ -199,11 +200,11 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&none  &none       &none      &none        &none        &none                     &none      &none     &none     &none      &none    &none
-&none  &kp INS     &kp PSCRN  &kp K_CMENU  &none        &none                     &kp PG_UP  &none     &kp UP    &none      &kp N0   &none
-&none  &kp LALT    &kp LCTRL  &kp LSHFT    &none        &kp CLCK                  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
-&none  &kp K_UNDO  &kp K_CUT  &kp K_COPY   &kp K_PASTE  &none     &none    &none  &none      &none     &none     &none      &none    &none
-                   &none      &none        &none        &none     &none    &none  &none      &none     &none     &none
+&none  &none  &none           &none           &none            &none                     &none      &none      &none      &none  &none  &none
+&none  &none  &none           &mmv MOVE_UP    &none            &none                     &kp PG_UP  &none      &mkp MCLK  &none  &none  &none
+&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp CLCK                  &kp PG_DN  &mkp LCLK  &mkp RCLK  &none  &none  &none
+&none  &none  &none           &none           &none            &none     &none    &none  &none      &none      &none      &none  &none  &none
+              &none           &none           &none            &none     &none    &none  &none      &none      &none      &none
             >;
         };
 
