@@ -15,7 +15,6 @@
 #define RAISE 2
 #define ADJUST 3
 #define extra_layer 4
-
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
 
 &mmv {
@@ -61,12 +60,12 @@
         };
 
         enter_combo {
-            bindings = <&kp ENTER>;
+            bindings = <&mt RC(RSHFT) ENTER>;
             key-positions = <31 32>;
         };
 
         escape_combo {
-            bindings = <&kp ESCAPE>;
+            bindings = <&mt LC(LSHFT) ESCAPE>;
             key-positions = <27 28>;
         };
     };
