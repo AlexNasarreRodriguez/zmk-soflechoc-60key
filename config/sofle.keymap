@@ -199,14 +199,12 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &trans      &trans     &trans       &trans       &trans                      &trans     &trans    &trans    &trans     &trans   &trans
-&trans  &kp INS     &kp PSCRN  &kp K_CMENU  &trans       &trans                      &kp PG_UP  &trans    &kp UP    &trans     &kp N0   &trans
-&trans  &kp LALT    &kp LCTRL  &kp LSHFT    &trans       &kp CLCK                    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
-&trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY   &kp K_PASTE  &trans    &trans    &trans  &trans     &trans    &trans    &trans     &trans   &trans
-                    &trans     &trans       &trans       &trans    &trans    &trans  &trans     &trans    &trans    &trans
+&none  &none       &none      &none        &none        &none                     &none      &none     &none     &none      &none    &none
+&none  &kp INS     &kp PSCRN  &kp K_CMENU  &none        &none                     &kp PG_UP  &none     &kp UP    &none      &kp N0   &none
+&none  &kp LALT    &kp LCTRL  &kp LSHFT    &none        &kp CLCK                  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
+&none  &kp K_UNDO  &kp K_CUT  &kp K_COPY   &kp K_PASTE  &none     &none    &none  &none      &none     &none     &none      &none    &none
+                   &none      &none        &none        &none     &none    &none  &none      &none     &none     &none
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         adjust_layer {
