@@ -49,6 +49,16 @@
             bindings = <&kp LS(F10)>;
             key-positions = <15 16>;
         };
+
+        enter_combo {
+            bindings = <&kp ENTER>;
+            key-positions = <31 32>;
+        };
+
+        escape_combo {
+            bindings = <&kp ESCAPE>;
+            key-positions = <27 28>;
+        };
     };
 
     /*
@@ -170,11 +180,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp F12  &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                   &kp F6     &kp F7                &kp F8                  &kp F9         &kp F10              &kp F11
-&trans   &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &none                    &kp PIPE   &kp LBRC              &kp RBRC                &kp EXCL       &kp QMARK            &kp TILDE
-&trans   &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &none                    &kp EQUAL  &hm RIGHT_SHIFT LPAR  &hm RIGHT_CONTROL RPAR  &hm LALT PLUS  &hm RIGHT_GUI MINUS  &trans
-&none    &kp DOLLAR         &kp N7                 &kp N8               &kp N9                   &kp N0  &none    &none   &kp AMPS   &kp LBKT              &kp RBKT                &kp STAR       &kp SLASH            &kp CARET
-                            &none                  &none                &none                    &none   &none    &trans  &none      &kp LT                &kp GT                  &none
+&kp F12  &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                   &kp F6         &kp F7                &kp F8                  &kp F9         &kp F10              &kp F11
+&trans   &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &none                    &kp BACKSLASH  &kp LBRC              &kp RBRC                &kp QUESTION   &kp EXCL             &kp TILDE
+&trans   &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &none                    &kp EQUAL      &hm RIGHT_SHIFT LPAR  &hm RIGHT_CONTROL RPAR  &hm LALT PLUS  &hm RIGHT_GUI MINUS  &trans
+&none    &kp DOLLAR         &kp N7                 &kp N8               &kp N9                   &kp N0  &none    &none   &kp AMPS       &kp LBKT              &kp RBKT                &kp STAR       &kp SLASH            &kp CARET
+                            &none                  &none                &none                    &none   &none    &trans  &none          &kp LT                &kp GT                  &none
             >;
         };
 
