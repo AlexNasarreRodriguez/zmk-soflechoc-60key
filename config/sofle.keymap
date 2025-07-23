@@ -16,6 +16,8 @@
 #define ADJUST 3
 #define extra_layer 4
 
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
+
 &mmv {
     trigger-period-ms = <0>;
     delay-ms = <0>;
