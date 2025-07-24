@@ -1,0 +1,5 @@
+config ZMK_BEHAVIOR_LANG_TOGGLE
+    bool "Language Toggle Behavior"
+    default y
+    help:
+      Enable the language toggle behavior.
