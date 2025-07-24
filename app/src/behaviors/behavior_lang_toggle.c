@@ -1,4 +1,4 @@
-#define DT_DRV_COMPAT zmk_behavior_lang_toggle
+#define DT_DRV_COMPAT nasarre_behavior_lang_toggle
 
 #include <device.h>
 #include <drivers/behavior.h>

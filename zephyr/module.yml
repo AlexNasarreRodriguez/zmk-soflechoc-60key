@@ -1,3 +1,6 @@
 build:
-  settings:
-    board_root: .
+  cmake: app
+  kconfig: app/Kconfig
+dts:
+  bindings:
+    - app/dts/bindings

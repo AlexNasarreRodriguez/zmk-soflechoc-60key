@@ -88,7 +88,7 @@
     behaviors {
         // Language toggle behavior for switching between English and Spanish
         lang_toggle: lang_toggle {
-            compatible = "zmk,behavior-lang-toggle";
+            compatible = "nasarre,behavior-lang-toggle";
             label = "LANG_TOGGLE";
             #binding-cells = <0>;
             lang-eng = "eng";
