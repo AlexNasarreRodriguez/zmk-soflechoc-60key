@@ -1,15 +1,25 @@
-description: Language toggle behavior
+description: Nasarre Language Toggle Behavior
 
-compatible: "zmk,behavior-lang-toggle"
+compatible: "nasarre,behavior-lang-toggle"
 
-include: zero_param.yaml
+include: zmk,behavior.yaml
 
 properties:
-  "#binding-cells":
+  label:
+    type: string
+    description: Behavior label
+
+  '#binding-cells':
+    type: int
     const: 0
+    description: Number of parameters
+
   lang-eng:
     type: string
     description: Language code for English
+    required: true
+
   lang-esp:
     type: string
     description: Language code for Spanish
+    required: true
