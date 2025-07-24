@@ -86,6 +86,12 @@
      */
 
     behaviors {
+        lang_toggle: lang_toggle {
+            compatible = "zmk,behavior-lang-toggle";
+            label = "LANG_TOGGLE";
+            #binding-cells = <0>;
+        };
+
         caps: caps {
             compatible = "zmk,behavior-caps-word";
             label = "CAPS";
@@ -194,10 +200,10 @@
         adjust_layer {
             display-name = "MACROS";
             bindings = <
-&bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &none  &none  &none  &none  &none  &none
+&bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &lang_toggle  &none  &none  &none  &none  &none
 &ext_power EP_TOG  &none         &none         &none         &none         &studio_unlock                  &none  &none  &none  &none  &none  &none
 &none              &none         &none         &none         &none         &none                           &none  &none  &none  &none  &none  &none
-&none              &none         &none         &none         &none         &caps_word      &none    &none  &none  &none  &none  &none  &none  &none
+&none              &none         &none         &none         &none         &none           &none    &none  &none  &none  &none  &none  &none  &none
                                  &none         &none         &none         &none           &none    &none  &none  &none  &none  &none
             >;
         };
