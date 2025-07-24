@@ -15,13 +15,13 @@
 #define RAISE 2
 #define ADJUST 3
 #define extra_layer 4
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1700
 
 &mmv {
     delay-ms = <0>;
-    time-to-max-speed-ms = <150>;
+    time-to-max-speed-ms = <130>;
     acceleration-exponent = <1>;
-    trigger-period-ms = <10>;
+    trigger-period-ms = <4>;
 };
 
 / {
