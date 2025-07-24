@@ -1,0 +1,15 @@
+description: Language toggle behavior
+
+compatible: "zmk,behavior-lang-toggle"
+
+include: zero_param.yaml
+
+properties:
+  "#binding-cells":
+    const: 0
+  lang-eng:
+    type: string
+    description: Language code for English
+  lang-esp:
+    type: string
+    description: Language code for Spanish

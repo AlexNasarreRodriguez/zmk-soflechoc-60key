@@ -1,3 +1,6 @@
 build:
   settings:
     board_root: .
+    # Adding our custom behaviors
+    cmake-ext:
+      - d:/Proyectos/ZMKfirmware/app
