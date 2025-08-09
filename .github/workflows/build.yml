@@ -48,17 +48,10 @@ jobs:
           artifact_name: ${{ matrix.artifact-name }}
           snippet: ${{ matrix.snippet }}
         run: |
-          if [ -e zephyr/module.yml ]; then
-            combined_extra_modules="${GITHUB_WORKSPACE} ${GITHUB_WORKSPACE}/modules/ZMKprommtbehaviors"
-            zmk_load_arg=" -DZMK_EXTRA_MODULES=\"${combined_extra_modules}\""
-            new_tmp_dir="${TMPDIR:-/tmp}/zmk-config"
-            mkdir -p "${new_tmp_dir}"
-            echo "base_dir=${new_tmp_dir}" >> $GITHUB_ENV
-          else
-            # No config-as-module. Still add external behavior module explicitly.
-            zmk_load_arg=" -DZMK_EXTRA_MODULES=\"${GITHUB_WORKSPACE}/modules/ZMKprommtbehaviors\""
-            echo "base_dir=${GITHUB_WORKSPACE}" >> $GITHUB_ENV
-          fi
+          # Always pass only the external behavior module as an extra Zephyr module.
+          # Do NOT include the config repo path here; it is not a Zephyr module.
+          zmk_load_arg=" -DZMK_EXTRA_MODULES='${GITHUB_WORKSPACE}/modules/ZMKprommtbehaviors'"
+          echo "base_dir=${GITHUB_WORKSPACE}" >> $GITHUB_ENV
 
           if [ -n "${snippet}" ]; then
             extra_west_args="-S \"${snippet}\""
