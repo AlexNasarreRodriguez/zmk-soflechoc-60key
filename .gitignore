@@ -5,6 +5,7 @@
 config/keymap_es_mapping.txt
 config/spanish_special_chars.txt
 config/english_special_chars.txt
+config/llm_prompt_structures.txt
 
 # Archivos temporales y de compilación
 build/
