@@ -4,8 +4,6 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: AlexNasarreRodriguez
       url-base: https://github.com/AlexNasarreRodriguez
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -14,9 +12,10 @@ manifest:
     - name: ZMKlangbehavior
       remote: AlexNasarreRodriguez
       revision: master
+      path: modules/ZMKlangbehavior
     - name: ZMKprommtbehaviors
       remote: AlexNasarreRodriguez
       revision: master
-
+      path: modules/ZMKprommtbehaviors
   self:
     path: config

@@ -3,6 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1700
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
@@ -14,7 +15,6 @@
 #define RAISE 2
 #define ADJUST 3
 #define extra_layer 4
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1700
 
 &mmv {
     delay-ms = <0>;
