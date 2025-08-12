@@ -2,7 +2,7 @@
 # Estos archivos contienen personalizaciones específicas del usuario
 # y no deben subirse al repositorio para permitir configuraciones individuales
 
-notes/
+#notes/ 
 
 # Archivos temporales y de compilación
 build/
