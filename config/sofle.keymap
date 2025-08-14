@@ -168,28 +168,37 @@
         };
     };
 
+    macros {
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none>;
+            label = "NEW_MACRO";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         eng_layer {
             display-name = "ENG";
             bindings = <
-&kp F12  &kp F1            &kp F2            &kp F3                &kp F4              &kp F5                              &kp F6  &kp F7               &kp F8                 &kp F9            &kp F10            &kp F11
-&none  &kp Q             &kp W             &kp E                 &kp R               &kp T                                 &kp Y   &kp U                &kp I                  &kp O             &none              &none
-&none  &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                 &kp H   &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI P  &none
-&none  &kp Z             &kp X             &kp C                 &kp V               &kp B   &none                  &none  &kp N   &kp M                &kp COMMA              &kp DOT           &none              &none
-                           &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_EN   &kp SPACE      &kp BACKSPACE  &mo 2   &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
+&kp F12   &kp F1            &kp F2            &kp F3                &kp F4              &kp F5                                      &kp F6  &kp F7               &kp F8                 &kp F9            &kp F10            &kp F11
+&none     &kp Q             &kp W             &kp E                 &kp R               &kp T                                       &kp Y   &kp U                &kp I                  &kp O             &none              &kp DELETE
+&kp APOS  &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                       &kp H   &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI P  &kp COLON
+&none     &kp Z             &kp X             &kp C                 &kp V               &kp B           &none        &none          &kp N   &kp M                &kp COMMA              &kp DOT           &kp SLASH          &kp BACKSLASH
+                            &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_EN  &kp SPACE    &kp BACKSPACE  &mo 2   &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
             >;
         };
 
         sym_eng_layer {
             display-name = "SYM ENG";
             bindings = <
-&kp F12  &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                   &kp F6         &kp F7                &kp F8                  &kp F9         &kp F10              &kp F11
-&trans   &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &none                    &kp BACKSLASH  &kp LBRC              &kp RBRC                &kp QUESTION   &kp EXCL             &kp TILDE
-&trans   &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &none                    &kp EQUAL      &hm RIGHT_SHIFT LPAR  &hm RIGHT_CONTROL RPAR  &hm LALT PLUS  &hm RIGHT_GUI MINUS  &trans
-&none    &kp DOLLAR         &kp N7                 &kp N8               &kp N9                   &kp N0  &none    &none   &kp AMPS       &kp LBKT              &kp RBKT                &kp STAR       &kp SLASH            &kp CARET
-                            &none                  &none                &none                    &none   &none    &trans  &none          &kp LT                &kp GT                  &none
+&kp F12            &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                      &kp F6            &kp F7                    &kp F8                  &kp F9          &kp F10             &kp F11
+&none              &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &kp PLUS                    &kp GREATER_THAN  &kp LEFT_PARENTHESIS      &kp LEFT_BRACKET        &kp LEFT_BRACE  &kp SPACE           &kp SPACE
+&kp DOUBLE_QUOTES  &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &kp MINUS                   &kp EQUAL         &hm RIGHT_SHIFT QUESTION  &hm RIGHT_CONTROL EXCL  &hm LALT AMPS   &hm RIGHT_GUI PIPE  &kp SEMI
+&kp GRAVE          &kp DOLLAR         &kp N7                 &kp N8               &kp N9                   &kp N0     &none    &none   &kp LESS_THAN     &kp PLUS                  &kp STAR                &kp CARET       &kp PERCENT         &none
+                                      &none                  &none                &none                    &none      &none    &trans  &none             &none                     &none                   &none
             >;
         };
 
@@ -208,32 +217,32 @@
             display-name = "ADJUST";
             bindings = <
 &bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &to BASE_ES  &to BASE_EN  &none  &none  &none  &none
-&ext_power EP_TOG  &none         &none         &none         &none         &studio_unlock                  &none  &none  &none  &none  &none  &none
-&none              &none         &none         &none         &none         &none                           &none  &none  &none  &none  &none  &none
-&none              &none         &none         &none         &none         &none           &none    &none  &none  &none  &none  &none  &none  &none
-                                 &none         &none         &none         &none           &none    &none  &none  &none  &none  &none
+&ext_power EP_TOG  &none         &none         &none         &none         &studio_unlock                  &none        &none        &none  &none  &none  &none
+&none              &none         &none         &none         &none         &none                           &none        &none        &none  &none  &none  &none
+&none              &none         &none         &none         &none         &none           &none    &none  &none        &none        &none  &none  &none  &none
+                                 &none         &none         &none         &none           &none    &none  &none        &none        &none  &none
             >;
         };
 
         esp_layer {
             display-name = "ESP";
             bindings = <
-&kp F12  &kp F1            &kp F2            &kp F3                &kp F4              &kp F5                                &kp F6  &kp F7               &kp F8                 &kp F9            &kp F10            &kp F11
-&kp DEL  &kp Q             &kp W             &kp E                 &kp R               &kp T                                 &kp Y   &kp U                &kp I                  &kp O             &kp P              &kp ES_LBKT
-&kp ESC  &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                 &kp H   &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI NON_US_HASH  &kp RBRC
-&none    &kp Z             &kp X             &kp C                 &kp V               &kp B   &kp PAGE_UP    &kp PAGE_DOWN  &kp N   &kp M                &kp COMMA              &kp DOT           &kp MINUS          &kp GRAVE
-                           &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_ES &kp SPACE      &kp BACKSPACE  &mo 2   &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
+&kp F12  &kp F1            &kp F2            &kp F3                &kp F4              &kp F5                                        &kp F6  &kp F7               &kp F8                 &kp F9            &kp F10                      &kp F11
+&kp DEL  &kp Q             &kp W             &kp E                 &kp R               &kp T                                         &kp Y   &kp U                &kp I                  &kp O             &kp P                        &kp ES_LBKT
+&kp ESC  &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                         &kp H   &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI NON_US_HASH  &kp RBRC
+&none    &kp Z             &kp X             &kp C                 &kp V               &kp B           &kp PAGE_UP    &kp PAGE_DOWN  &kp N   &kp M                &kp COMMA              &kp DOT           &kp MINUS                    &kp GRAVE
+                           &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_ES  &kp SPACE      &kp BACKSPACE  &mo 2   &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
             >;
         };
 
         sym_esp_layer {
             display-name = "SYM ESP";
             bindings = <
-&kp F12  &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                   &kp F6         &kp F7                &kp F8                  &kp F9         &kp F10              &kp F11
-&trans   &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &none                    &kp ES_SQT     &kp ES_LBKT           &kp ES_RBKT             &kp ES_EXCL    &kp ES_QMARK         &kp ES_TILDE
-&trans   &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &none                    &kp ES_EQUAL   &hm RIGHT_SHIFT ES_LPAR  &hm RIGHT_CONTROL ES_RPAR  &hm LALT ES_PLUS  &hm RIGHT_GUI ES_MINUS  &trans
-&none    &kp ES_DOLLAR      &kp ES_N7              &kp ES_N8            &kp ES_N9                &kp ES_N0  &none    &none   &kp ES_AMPS      &kp ES_LBKT           &kp ES_RBKT             &kp ES_STAR    &kp ES_SLASH          &kp ES_CARET
-                            &none                  &none                &none                    &none   &none    &trans  &none          &kp ES_LT             &kp ES_GT                &none
+&kp F12  &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                      &kp F6        &kp F7                   &kp F8                     &kp F9            &kp F10                 &kp F11
+&trans   &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &none                       &kp ES_SQT    &kp ES_LBKT              &kp ES_RBKT                &kp ES_EXCL       &kp ES_QMARK            &kp ES_TILDE
+&trans   &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &none                       &kp ES_EQUAL  &hm RIGHT_SHIFT ES_LPAR  &hm RIGHT_CONTROL ES_RPAR  &hm LALT ES_PLUS  &hm RIGHT_GUI ES_MINUS  &trans
+&none    &kp ES_DOLLAR      &kp ES_N7              &kp ES_N8            &kp ES_N9                &kp ES_N0  &none    &none   &kp ES_AMPS   &kp ES_LBKT              &kp ES_RBKT                &kp ES_STAR       &kp ES_SLASH            &kp ES_CARET
+                            &none                  &none                &none                    &none      &none    &trans  &none         &kp ES_LT                &kp ES_GT                  &none
             >;
         };
     };
