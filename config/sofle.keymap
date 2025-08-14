@@ -200,7 +200,7 @@
             display-name = "SYM ESP";
             bindings = <
 &kp F12                            &kp F1                &kp F2              &kp F3                  &kp F4                &kp F5                         &kp F6        &kp F7                       &kp F8                     &kp F9             &kp F10                &kp F11
-&kp ES_FEMININE_ORDINAL_INDICATOR  &kp ES_AT             &kp ES_N1           &kp ES_N2               &kp ES_N3             &kp ES_PLUS                    &kp ES_GT     &kp ES_LPAR                  &kp ES_LBKT                &kp ES_LEFT_BRACE  &kp SPACE              &kp SPACE
+&kp ES_FEMININE_ORDINAL_INDICATOR  &kp ES_AT             &kp ES_N1           &kp ES_N2               &kp ES_N3             &kp ES_PLUS                    &kp ES_GT     &kp ES_LPAR                  &kp ES_LBKT                &kp ES_LEFT_BRACE  &kp ES_TILDE           &kp SPACE
 &kp ES_DQT                         &hm LEFT_GUI ES_HASH  &hm LEFT_ALT ES_N4  &hm LEFT_CONTROL ES_N5  &hm LEFT_SHIFT ES_N6  &kp ES_MINUS                   &kp ES_EQUAL  &hm RIGHT_SHIFT ES_QUESTION  &hm RIGHT_CONTROL ES_EXCL  &hm LALT ES_AMPS   &hm RIGHT_GUI ES_PIPE  &kp ES_SEMI
 &kp ES_GRAVE                       &kp ES_DOLLAR         &kp ES_N7           &kp ES_N8               &kp ES_N9             &kp ES_N0     &none    &none   &kp ES_LT     &kp ES_PLUS                  &kp ES_STAR                &kp ES_CARET       &kp ES_PERCENT         &none
                                                          &none               &none                   &none                 &none         &none    &trans  &none         &none                        &none                      &none
