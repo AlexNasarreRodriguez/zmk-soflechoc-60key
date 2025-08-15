@@ -223,11 +223,140 @@
     };
 
     macros {
-        new_macro: new_macro {
+        // Checkbox macros
+        checkmark: checkmark {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none>;
-            label = "NEW_MACRO";
+            bindings = <&kp LS(N2) &kp N2 &kp N5 &kp N1 &kp N3>; // Alt+2513 for ✓
+            label = "CHECKMARK";
+        };
+
+        crossmark: crossmark {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N2) &kp N5 &kp N3 &kp N3 &kp N5>; // Alt+25335 for ✗
+            label = "CROSSMARK";
+        };
+
+        // Text editing macros
+        select_word: select_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT) &kp LC(LS(LEFT))>; // Ctrl+Right, Ctrl+Shift+Left
+            label = "SELECT_WORD";
+        };
+
+        select_line: select_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>; // Home, Shift+End
+            label = "SELECT_LINE";
+        };
+
+        duplicate_line: duplicate_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END) &kp LC(C) &kp END &kp ENTER &kp LC(V)>; // Select line, copy, go to end, enter, paste
+            label = "DUPLICATE_LINE";
+        };
+
+        duplicate_selection: duplicate_selection {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(C) &kp RIGHT &kp LC(V)>; // Copy selection, move cursor, paste
+            label = "DUPLICATE_SELECTION";
+        };
+
+        // Advanced text editing macros
+        select_all_between_brackets: select_all_between_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(F) &kp LPAR &kp ENTER &kp ESCAPE &kp LC(LS(RIGHT))>; // Find (, then select to matching )
+            label = "SELECT_BRACKETS";
+        };
+
+        move_line_up: move_line_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END) &kp LC(X) &kp BACKSPACE &kp UP &kp END &kp ENTER &kp LC(V)>; // Cut line, move up, paste
+            label = "MOVE_LINE_UP";
+        };
+
+        move_line_down: move_line_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END) &kp LC(X) &kp DELETE &kp DOWN &kp HOME &kp LC(V) &kp ENTER &kp UP>; // Cut line, move down, paste
+            label = "MOVE_LINE_DOWN";
+        };
+
+        delete_word_back: delete_word_back {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(BACKSPACE)>; // Ctrl+Backspace to delete word backwards
+            label = "DELETE_WORD_BACK";
+        };
+
+        delete_word_forward: delete_word_forward {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(DELETE)>; // Ctrl+Delete to delete word forwards
+            label = "DELETE_WORD_FORWARD";
+        };
+
+        select_to_beginning: select_to_beginning {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(HOME))>; // Ctrl+Shift+Home - select to beginning of document
+            label = "SELECT_TO_BEGINNING";
+        };
+
+        select_to_end: select_to_end {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(END))>; // Ctrl+Shift+End - select to end of document
+            label = "SELECT_TO_END";
+        };
+
+        comment_line: comment_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(SLASH)>; // Ctrl+/ to toggle comment (works in most editors)
+            label = "COMMENT_LINE";
+        };
+
+        indent_line: indent_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp TAB>; // Go to beginning of line and add tab
+            label = "INDENT_LINE";
+        };
+
+        unindent_line: unindent_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp BACKSPACE>; // Go to beginning and remove one character (tab/space)
+            label = "UNINDENT_LINE";
+        };
+
+        join_lines: join_lines {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp END &kp DELETE &kp SPACE>; // Go to end, delete next line break, add space
+            label = "JOIN_LINES";
+        };
+
+        new_line_above: new_line_above {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp ENTER &kp UP>; // Go to beginning, create new line, go back up
+            label = "NEW_LINE_ABOVE";
+        };
+
+        new_line_below: new_line_below {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp END &kp ENTER>; // Go to end and create new line
+            label = "NEW_LINE_BELOW";
         };
     };
 
