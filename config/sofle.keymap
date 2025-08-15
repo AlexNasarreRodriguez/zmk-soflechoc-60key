@@ -116,7 +116,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_PAREN_ES";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp ES_LPAR>, <&kp ES_RPAR>;
         };
 
@@ -124,7 +124,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_BRACKET_ES";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp ES_LBKT>, <&kp ES_RBKT>;
         };
 
@@ -132,7 +132,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_BRACE_ES";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp ES_LEFT_BRACE>, <&kp ES_RIGHT_BRACE>;
         };
 
@@ -140,7 +140,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_PAREN_EN";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
         };
 
@@ -148,7 +148,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_BRACKET_EN";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
         };
 
@@ -156,7 +156,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_BRACE_EN";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
         };
 
@@ -171,7 +171,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        /* Positional Home Row Mods (izquierdo) */
+        /* Positional Home Row Mods (izquierdo) */  
 
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
