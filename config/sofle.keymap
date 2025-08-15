@@ -203,7 +203,7 @@
 &kp ES_FEMININE_ORDINAL_INDICATOR  &kp ES_AT             &kp ES_N1           &kp ES_N2               &kp ES_N3             &kp ES_PLUS                    &kp ES_GT     &kp ES_LPAR                  &kp ES_LBKT                &kp ES_LEFT_BRACE  &kp ES_TILDE           &kp SPACE
 &kp ES_DQT                         &hm LEFT_GUI ES_HASH  &hm LEFT_ALT ES_N4  &hm LEFT_CONTROL ES_N5  &hm LEFT_SHIFT ES_N6  &kp ES_MINUS                   &kp ES_EQUAL  &hm RIGHT_SHIFT ES_QUESTION  &hm RIGHT_CONTROL ES_EXCL  &hm LALT ES_AMPS   &hm RIGHT_GUI ES_PIPE  &kp ES_SEMI
 &kp ES_GRAVE                       &kp ES_DOLLAR         &kp ES_N7           &kp ES_N8               &kp ES_N9             &kp ES_N0     &none    &none   &kp ES_LT     &kp ES_PLUS                  &kp ES_STAR                &kp ES_CARET       &kp ES_PERCENT         &none
-                                                         &none               &none                   &none                 &none         &none    &trans  &none         &none                        &none                      &none
+                                                         &none               &none                   &none                 &none         &none    &trans  &mo ADJUST    &none                        &none                      &none
             >;
         };
 
@@ -214,7 +214,7 @@
 &none  &none  &none           &mmv MOVE_UP    &none            &none                     &kp PG_UP  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none  &none
 &none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp CLCK                  &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none
 &none  &none  &none           &none           &none            &none     &none    &none  &none      &none           &none           &none            &none  &none
-              &none           &none           &none            &none     &none    &none  &none      &none           &none           &none
+              &none           &none           &none            &mo ADJUST     &none    &none  &none      &none           &none           &none
             >;
         };
 
@@ -244,10 +244,10 @@
             display-name = "SYM ENG";
             bindings = <
 &kp F12                            &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                      &kp F6            &kp F7                    &kp F8                  &kp F9          &kp F10             &kp F11
-&kp ES_FEMININE_ORDINAL_INDICATOR  &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &kp PLUS                    &kp GREATER_THAN  &kp LEFT_PARENTHESIS      &kp LEFT_BRACKET        &kp LEFT_BRACE  &kp SPACE           &kp SPACE
+&kp ES_FEMININE_ORDINAL_INDICATOR  &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &kp PLUS                    &kp GREATER_THAN  &kp LEFT_PARENTHESIS      &kp LEFT_BRACKET        &kp LEFT_BRACE  &kp TILDE           &kp SPACE
 &kp DOUBLE_QUOTES                  &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &kp MINUS                   &kp EQUAL         &hm RIGHT_SHIFT QUESTION  &hm RIGHT_CONTROL EXCL  &hm LALT AMPS   &hm RIGHT_GUI PIPE  &kp SEMI
 &kp GRAVE                          &kp DOLLAR         &kp N7                 &kp N8               &kp N9                   &kp N0     &none    &none   &kp LESS_THAN     &kp PLUS                  &kp STAR                &kp CARET       &kp PERCENT         &none
-                                                      &none                  &none                &none                    &none      &none    &trans  &none             &none                     &none                   &none
+                                                      &none                  &none                &none                    &none      &none    &trans  &mo ADJUST        &none                     &none                   &none
             >;
         };
     };
