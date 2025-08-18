@@ -111,6 +111,25 @@
             continue-list = <POUND MINUS BACKSPACE UNDERSCORE>;
         };
 
+        // Tap-dance para spacebar: tap = space, doble tap = shift+enter
+        td_space: tap_dance_space {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_SPACE";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp SPACE>, <&kp LS(ENTER)>;
+        };
+
+        // Mod-tap que combina el tap-dance con shift al mantener
+        mt_space: mod_tap_space {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_SPACE";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&td_space>;
+        };
+
 
         // Tap-dance behaviors for opening/closing characters
         td_paren_es: tap_dance_paren_es {
@@ -242,7 +261,7 @@
 &kp ES_SINGLE_QUOTE  &kp Q             &kp W             &kp E                 &kp R               &kp T                                        &kp Y      &kp U                &kp I                  &kp O             &kp ES_ACUTE       &kp DELETE
 &kp ES_MINUS         &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                        &kp H      &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI P  &kp ES_COLON
 &kp ES_UNDER         &kp Z             &kp X             &kp C                 &kp V               &kp B           &none        &kp ES_N_TILDE  &kp N      &kp M                &kp ES_COMMA           &kp ES_DOT        &kp ES_SLASH       &kp ES_BACKSLASH
-                                       &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_ES  &kp SPACE    &kp BACKSPACE   &mo RAISE  &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
+                                       &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_ES  &mt_space LSHIFT 0    &kp BACKSPACE   &mo RAISE  &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
             >;
         };
 
@@ -264,7 +283,7 @@
 &kp SQT    &kp Q             &kp W             &kp E                 &kp R               &kp T                                        &kp Y      &kp U                &kp I                  &kp O             &kp SEMI           &kp DELETE
 &kp MINUS  &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                        &kp H      &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI P  &kp COLON
 &kp UNDER  &kp Z             &kp X             &kp C                 &kp V               &kp B           &none        &kp TILDE       &kp N      &kp M                &kp COMMA              &kp DOT           &kp SLASH          &kp BACKSLASH
-                                                      &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_EN  &kp SPACE    &kp BACKSPACE   &mo RAISE  &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
+                                                      &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_EN  &mt_space LSHIFT 0    &kp BACKSPACE   &mo RAISE  &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
             >;
         };
 
@@ -284,8 +303,8 @@
             bindings = <
 &none  &none  &none           &none           &none            &none                     &none      &none           &none           &none            &none  &none
 &none  &none  &none           &kp UP_ARROW    &kt LSHIFT       &msc SCRL_UP              &kp PG_UP  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none  &none
-&none  &kp HOME  &kp LC(LEFT)    &kp DOWN_ARROW  &kp LC(RIGHT)    &msc SCRL_DOWN            &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK  &mkp RCLK
-&kp END  &none  &none           &none           &none            &none     &none    &none  &none      &none           &none           &none            &none  &none
+&kp HOME  &kp END  &kp LC(LEFT)    &kp DOWN_ARROW  &kp LC(RIGHT)    &msc SCRL_DOWN            &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK  &mkp RCLK
+&none  &none  &none           &none           &none            &none     &none    &none  &none      &none           &none           &none            &none  &none
               &none           &none           &none            &trans    &none    &none  &none      &none           &none           &none
             >;
         };
