@@ -230,7 +230,7 @@
 
             hold-trigger-key-positions = <
                 /* Mano Izquierda */
-                0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 42 43 50 51 52 53 54
+                0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 31 33 36 37 38 39 40 41 42 43 50 51 52 53 54
                 /* Fila Numérica Derecha (solapamiento) */
                 6 7 8 9 10 11
                 /* Fila Pulgar Derecha (solapamiento) */
