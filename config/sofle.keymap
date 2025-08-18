@@ -111,6 +111,7 @@
             continue-list = <POUND MINUS BACKSPACE UNDERSCORE>;
         };
 
+
         // Tap-dance behaviors for opening/closing characters
         td_paren_es: tap_dance_paren_es {
             compatible = "zmk,behavior-tap-dance";
@@ -282,8 +283,8 @@
             display-name = "NAV";
             bindings = <
 &none  &none  &none           &none           &none            &none                     &none      &none           &none           &none            &none  &none
-&none  &none  &none           &mmv MOVE_UP    &none            &none                     &kp PG_UP  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none  &none
-&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp CLCK                  &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none
+&none  &none  &none           &kp UP_ARROW    &kt LSHIFT       &msc SCRL_UP              &kp PG_UP  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none  &none
+&none  &none  &kp LC(LEFT)    &kp DOWN_ARROW  &kp LC(RIGHT)    &msc SCRL_DOWN            &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK  &mkp RCLK
 &none  &none  &none           &none           &none            &none     &none    &none  &none      &none           &none           &none            &none  &none
               &none           &none           &none            &trans    &none    &none  &none      &none           &none           &none
             >;
