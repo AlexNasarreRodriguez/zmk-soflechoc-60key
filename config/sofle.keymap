@@ -282,8 +282,8 @@
             display-name = "NAV";
             bindings = <
 &none  &none  &none           &none           &none            &none                     &none      &none           &none           &none            &none  &none
-&none  &none  &none           &kp UP_ARROW    &none            &none                     &kp PG_UP  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none  &none
-&none  &none  &kp LC(LEFT)    &kp DOWN_ARROW  &kp LC(RIGHT)    &kp CLCK                  &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK  &mkp RCLK
+&none  &none  &none           &kp UP_ARROW    &none            &mmv SCROLL_UP            &kp PG_UP  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none  &none
+&none  &none  &kp LC(LEFT)    &kp DOWN_ARROW  &kp LC(RIGHT)    &mmv SCROLL_DOWN          &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK  &mkp RCLK
 &none  &none  &none           &none           &none            &none     &none    &none  &none      &none           &none           &none            &none  &none
               &none           &none           &none            &trans    &none    &none  &none      &none           &none           &none
             >;
