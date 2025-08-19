@@ -17,6 +17,7 @@
 #define SYMBOLS_EN 3
 #define RAISE 4
 #define ADJUST 5
+#define GIT_ESP 6
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1700
 
 &mmv {
@@ -576,7 +577,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &mo GIT_ESP  &trans  &trans  &trans
             >;
         };
 
