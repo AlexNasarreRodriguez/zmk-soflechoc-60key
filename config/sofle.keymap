@@ -17,6 +17,7 @@
 #define SYMBOLS_EN 3
 #define RAISE 4
 #define ADJUST 5
+#define GIT_ESP 6
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1700
 
 &mmv {
@@ -234,11 +235,260 @@
     };
 
     macros {
-        new_macro: new_macro {
+        // Git Atomic Commands
+        git_status: git_status {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none>;
-            label = "NEW_MACRO";
+            label = "GIT_STATUS";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_S &kp ES_T &kp ES_A &kp ES_T &kp ES_U &kp ES_S &kp ES_SPACE>;
+        };
+        git_add_all: git_add_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_ADD_ALL";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_MINUS &kp ES_A &kp ES_SPACE>;
+        };
+        git_commit: git_commit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_COMMIT";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT>;
+        };
+        git_push: git_push {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_PUSH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_S &kp ES_H &kp ES_SPACE>;
+        };
+        git_push_upstream: git_push_upstream {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_PUSH_UPSTREAM";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_S &kp ES_H &kp ES_SPACE &kp ES_MINUS &kp ES_U &kp ES_SPACE &kp ES_O &kp ES_R &kp ES_I &kp ES_G &kp ES_I &kp ES_N &kp ES_SPACE &kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_SPACE>;
+        };
+        git_pull: git_pull {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_PULL";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_L &kp ES_L &kp ES_SPACE>;
+        };
+        git_fetch: git_fetch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_FETCH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_F &kp ES_E &kp ES_T &kp ES_C &kp ES_H &kp ES_SPACE>;
+        };
+        git_diff: git_diff {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_DIFF";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_D &kp ES_I &kp ES_F &kp ES_F &kp ES_SPACE>;
+        };
+        git_stash: git_stash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_STASH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_S &kp ES_T &kp ES_A &kp ES_S &kp ES_H &kp ES_SPACE>;
+        };
+        git_branch: git_branch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_BRANCH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_B &kp ES_R &kp ES_A &kp ES_N &kp ES_C &kp ES_H &kp ES_SPACE>;
+        };
+        git_log: git_log {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_LOG";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_L &kp ES_O &kp ES_G &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_O &kp ES_N &kp ES_E &kp ES_L &kp ES_I &kp ES_N &kp ES_E &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_G &kp ES_R &kp ES_A &kp ES_P &kp ES_H &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_D &kp ES_E &kp ES_C &kp ES_O &kp ES_R &kp ES_A &kp ES_T &kp ES_E &kp ES_SPACE>;
+        };
+        git_reset_soft: git_reset_soft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_RESET_SOFT";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_R &kp ES_E &kp ES_S &kp ES_E &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_S &kp ES_O &kp ES_F &kp ES_T &kp ES_SPACE &kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_TILDE &kp ES_N1 &kp ES_SPACE>;
+        };
+        git_checkout: git_checkout {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_CHECKOUT";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_H &kp ES_E &kp ES_C &kp ES_K &kp ES_O &kp ES_U &kp ES_T &kp ES_SPACE>;
+        };
+        git_restore: git_restore {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_RESTORE";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_R &kp ES_E &kp ES_S &kp ES_T &kp ES_O &kp ES_R &kp ES_E &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_S &kp ES_O &kp ES_U &kp ES_R &kp ES_C &kp ES_E &kp ES_EQUAL &kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_SPACE>;
+        };
+
+        // Git Workflows
+        git_add_commit: git_add_commit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_ADD_COMMIT";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_MINUS &kp ES_A &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT>;
+        };
+        git_add_commit_push: git_add_commit_push {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_ADD_COMMIT_PUSH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_MINUS &kp ES_A &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT &kp RIGHT &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_S &kp ES_H &kp ES_SPACE &kp ES_MINUS &kp ES_U &kp ES_SPACE &kp ES_O &kp ES_R &kp ES_I &kp ES_G &kp ES_I &kp ES_N &kp ES_SPACE &kp ES_H &kp ES_E &kp ES_A &kp ES_D>;
+        };
+        git_stash_pull_pop: git_stash_pull_pop {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_STASH_PULL_POP";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_S &kp ES_T &kp ES_A &kp ES_S &kp ES_H &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_L &kp ES_L &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_S &kp ES_T &kp ES_A &kp ES_S &kp ES_H &kp ES_SPACE &kp ES_P &kp ES_O &kp ES_P &kp ES_SPACE>;
+        };
+
+        // Git Flow Prefixes
+        git_flow_feature: git_flow_feature {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_FLOW_FEATURE";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_F &kp ES_L &kp ES_O &kp ES_W &kp ES_SPACE &kp ES_F &kp ES_E &kp ES_A &kp ES_T &kp ES_U &kp ES_R &kp ES_E &kp ES_SPACE>;
+        };
+        git_flow_release: git_flow_release {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_FLOW_RELEASE";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_F &kp ES_L &kp ES_O &kp ES_W &kp ES_SPACE &kp ES_R &kp ES_E &kp ES_L &kp ES_E &kp ES_A &kp ES_S &kp ES_E &kp ES_SPACE>;
+        };
+        git_flow_hotfix: git_flow_hotfix {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_FLOW_HOTFIX";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_F &kp ES_L &kp ES_O &kp ES_W &kp ES_SPACE &kp ES_H &kp ES_O &kp ES_T &kp ES_F &kp ES_I &kp ES_X &kp ES_SPACE>;
+        };
+
+        // Control Commands
+        cmd_start: cmd_start {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "CMD_START";
+            bindings = <&kp ES_S &kp ES_T &kp ES_A &kp ES_R &kp ES_T &kp ES_SPACE>;
+        };
+        cmd_finish: cmd_finish {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "CMD_FINISH";
+            bindings = <&kp ES_F &kp ES_I &kp ES_N &kp ES_I &kp ES_S &kp ES_H &kp ES_SPACE>;
+        };
+        cmd_publish: cmd_publish {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "CMD_PUBLISH";
+            bindings = <&kp ES_P &kp ES_U &kp ES_B &kp ES_L &kp ES_I &kp ES_S &kp ES_H &kp ES_SPACE>;
+        };
+
+        // References
+        ref_head: ref_head {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "REF_HEAD";
+            bindings = <&kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_SPACE>;
+        };
+
+        // Conventional Commit Prefixes
+        commit_feat: commit_feat {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_FEAT";
+            bindings = <&kp ES_F &kp ES_E &kp ES_A &kp ES_T &kp ES_COLON &kp ES_SPACE>;
+        };
+        commit_fix: commit_fix {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_FIX";
+            bindings = <&kp ES_F &kp ES_I &kp ES_X &kp ES_COLON &kp ES_SPACE>;
+        };
+        commit_refactor: commit_refactor {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_REFACTOR";
+            bindings = <&kp ES_R &kp ES_E &kp ES_F &kp ES_A &kp ES_C &kp ES_T &kp ES_O &kp ES_R &kp ES_COLON &kp ES_SPACE>;
+        };
+        commit_docs: commit_docs {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_DOCS";
+            bindings = <&kp ES_D &kp ES_O &kp ES_C &kp ES_S &kp ES_COLON &kp ES_SPACE>;
+        };
+        commit_style: commit_style {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_STYLE";
+            bindings = <&kp ES_S &kp ES_T &kp ES_Y &kp ES_L &kp ES_E &kp ES_COLON &kp ES_SPACE>;
+        };
+        commit_test: commit_test {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_TEST";
+            bindings = <&kp ES_T &kp ES_E &kp ES_S &kp ES_T &kp ES_COLON &kp ES_SPACE>;
+        };
+        commit_chore: commit_chore {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_CHORE";
+            bindings = <&kp ES_C &kp ES_H &kp ES_O &kp ES_R &kp ES_E &kp ES_COLON &kp ES_SPACE>;
+        };
+
+        // Tap Dance Behaviors for Git Flow and Conventional Commits
+        td_git_flow_feature: td_git_flow_feature {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_FLOW_FEATURE";
+            tapping-term-ms = <200>;
+            bindings = <&git_flow_feature>, <&commit_feat>;
+        };
+        td_git_flow_hotfix: td_git_flow_hotfix {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_FLOW_HOTFIX";
+            tapping-term-ms = <200>;
+            bindings = <&git_flow_hotfix>, <&commit_fix>;
+        };
+        td_git_diff: td_git_diff {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_DIFF";
+            tapping-term-ms = <200>;
+            bindings = <&git_diff>, <&commit_docs>;
+        };
+        td_git_stash: td_git_stash {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_STASH";
+            tapping-term-ms = <200>;
+            bindings = <&git_stash>, <&commit_style>;
+        };
+        td_git_restore: td_git_restore {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_RESTORE";
+            tapping-term-ms = <200>;
+            bindings = <&git_restore>, <&commit_refactor>;
+        };
+        td_git_stash_pull: td_git_stash_pull {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_STASH_PULL";
+            tapping-term-ms = <200>;
+            bindings = <&git_stash>, <&commit_test>;
+        };
+        td_git_commit: td_git_commit {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_COMMIT";
+            tapping-term-ms = <200>;
+            bindings = <&git_commit>, <&commit_chore>;
+        };
+        td_commit_fix: td_commit_fix {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_COMMIT_FIX";
+            tapping-term-ms = <200>;
+            bindings = <&kp ES_X>, <&commit_fix>;
         };
     };
 
@@ -305,9 +555,31 @@
             bindings = <
 &bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &to 0  &to 2  &none  &none  &none  &none
 &ext_power EP_TOG  &none         &none         &none         &none         &studio_unlock                  &none  &none  &none  &none  &none  &none
-&none              &none         &none         &none         &none         &none                           &none  &none  &none  &none  &none  &none
-&none              &none         &none         &none         &none         &none           &none    &none  &none  &none  &none  &none  &none  &none
-                                 &none         &none         &none         &none           &none    &none  &none  &none  &none  &none
+&none              &none         &none         &none         &none         &sl GIT_ESP                     &none  &none  &none  &none  &none  &none
+&none              &none         &none         &none         &none         &none         &none    &none   &none  &none  &none  &none  &none  &none
+                                 &none         &none         &none         &none         &none    &none   &none  &none  &none  &none
+            >;
+        };
+
+        raise_layer {
+            display-name = "RAISE";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &mo GIT_ESP  &trans  &trans  &trans
+            >;
+        };
+
+        git_esp_layer {
+            display-name = "GIT ESP";
+            bindings = <
+&trans              &trans            &trans            &trans                &trans              &trans                                       &trans     &trans               &trans                 &trans            &trans             &trans
+&trans              &git_add_commit   &git_add_commit_push &git_fetch        &git_restore        &git_stash                                   &git_stash_pull_pop &git_push_upstream   &cmd_start             &git_checkout     &trans             &trans
+&trans              &git_add_all      &git_status       &td_git_diff          &td_git_flow_feature &git_log                                     &td_git_flow_hotfix &cmd_finish          &cmd_publish           &git_pull         &git_push          &trans
+&trans              &git_reset_soft   &td_commit_fix    &td_git_commit        &git_flow_release   &git_branch         &trans   &trans          &trans             &ref_head            &trans                 &trans            &trans             &trans
+                                      &trans            &trans                &trans              &trans              &to BASE_ES &trans          &trans             &trans               &trans                 &trans
             >;
         };
     };
