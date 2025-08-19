@@ -319,7 +319,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             label = "GIT_RESET_SOFT";
-            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_R &kp ES_E &kp ES_S &kp ES_E &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_S &kp ES_O &kp ES_F &kp ES_T &kp ES_SPACE &kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_TILDE &kp ES_N1 &kp ES_SPACE>;
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_R &kp ES_E &kp ES_S &kp ES_E &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_S &kp ES_O &kp ES_F &kp ES_T &kp ES_SPACE &kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_CARET &kp ES_N1 &kp ES_SPACE>;
         };
 
         git_checkout: git_checkout {
