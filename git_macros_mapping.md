@@ -36,7 +36,7 @@
 
 ### Prefijos de Commit Convencionales (Tap Dance)
 - **F+F** → `feat: `
-- **F+X** → `fix: `
+- **X+X** → `fix: `
 - **R+R** → `refactor: `
 - **D+D** → `docs: `
 - **S+S** → `style: `
