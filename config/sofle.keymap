@@ -17,6 +17,7 @@
 #define SYMBOLS_EN 3
 #define RAISE 4
 #define ADJUST 5
+#define GIT_ESP 6
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1700
 
 &mmv {
@@ -80,6 +81,11 @@
             bindings = <&caps>;
             key-positions = <28 31>;
         };
+
+        shifted_enter_combo {
+            bindings = <&mt RC(LEFT_ALT) LS(ENTER)>;
+            key-positions = <32 33>;
+        };
     };
 
     /*
@@ -111,12 +117,24 @@
             continue-list = <POUND MINUS BACKSPACE UNDERSCORE>;
         };
 
+        // Simple mod-tap para spacebar: tap = space, hold = shift
+
+        mt_space: mod_tap_space {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_SPACE";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
         // Tap-dance behaviors for opening/closing characters
+
         td_paren_es: tap_dance_paren_es {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_PAREN_ES";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&kp ES_LPAR>, <&kp ES_RPAR>;
         };
 
@@ -124,7 +142,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_BRACKET_ES";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&kp ES_LBKT>, <&kp ES_RBKT>;
         };
 
@@ -132,7 +150,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_BRACE_ES";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&kp ES_LEFT_BRACE>, <&kp ES_RIGHT_BRACE>;
         };
 
@@ -140,7 +158,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_PAREN_EN";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
         };
 
@@ -148,7 +166,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_BRACKET_EN";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
         };
 
@@ -156,7 +174,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_BRACE_EN";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <250>;
             bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
         };
 
@@ -171,7 +189,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        /* Positional Home Row Mods (izquierdo) */  
+        /* Positional Home Row Mods (izquierdo) */
 
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
@@ -210,7 +228,7 @@
 
             hold-trigger-key-positions = <
                 /* Mano Izquierda */
-                0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 42 43 50 51 52 53 54
+                0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 31 33 36 37 38 39 40 41 42 43 50 51 52 53 54
                 /* Fila Numérica Derecha (solapamiento) */
                 6 7 8 9 10 11
                 /* Fila Pulgar Derecha (solapamiento) */
@@ -223,11 +241,299 @@
     };
 
     macros {
-        new_macro: new_macro {
+        // Git Atomic Commands
+
+        git_status: git_status {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none>;
-            label = "NEW_MACRO";
+            label = "GIT_STATUS";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_S &kp ES_T &kp ES_A &kp ES_T &kp ES_U &kp ES_S &kp ES_SPACE>;
+        };
+
+        git_add_all: git_add_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_ADD_ALL";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_DOT &kp ES_SPACE>;
+        };
+
+        git_commit: git_commit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_COMMIT";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT>;
+        };
+
+        git_push: git_push {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_PUSH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_S &kp ES_H &kp ES_SPACE>;
+        };
+
+        git_push_upstream: git_push_upstream {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_PUSH_UPSTREAM";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_S &kp ES_H &kp ES_SPACE &kp ES_MINUS &kp ES_U &kp ES_SPACE &kp ES_O &kp ES_R &kp ES_I &kp ES_G &kp ES_I &kp ES_N &kp ES_SPACE &kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_SPACE>;
+        };
+
+        git_pull: git_pull {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_PULL";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_L &kp ES_L &kp ES_SPACE>;
+        };
+
+        git_fetch: git_fetch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_FETCH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_F &kp ES_E &kp ES_T &kp ES_C &kp ES_H &kp ES_SPACE>;
+        };
+
+        git_diff: git_diff {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_DIFF";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_D &kp ES_I &kp ES_F &kp ES_F &kp ES_SPACE>;
+        };
+
+        git_stash: git_stash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_STASH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_S &kp ES_T &kp ES_A &kp ES_S &kp ES_H &kp ES_SPACE>;
+        };
+
+        git_branch: git_branch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_BRANCH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_B &kp ES_R &kp ES_A &kp ES_N &kp ES_C &kp ES_H &kp ES_SPACE>;
+        };
+
+        git_log: git_log {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_LOG";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_L &kp ES_O &kp ES_G &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_O &kp ES_N &kp ES_E &kp ES_L &kp ES_I &kp ES_N &kp ES_E &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_G &kp ES_R &kp ES_A &kp ES_P &kp ES_H &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_D &kp ES_E &kp ES_C &kp ES_O &kp ES_R &kp ES_A &kp ES_T &kp ES_E &kp ES_SPACE>;
+        };
+
+        git_reset_soft: git_reset_soft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_RESET_SOFT";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_R &kp ES_E &kp ES_S &kp ES_E &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_S &kp ES_O &kp ES_F &kp ES_T &kp ES_SPACE &kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_CARET &kp ES_N1 &kp ES_SPACE>;
+        };
+
+        git_checkout: git_checkout {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_CHECKOUT";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_H &kp ES_E &kp ES_C &kp ES_K &kp ES_O &kp ES_U &kp ES_T &kp ES_SPACE>;
+        };
+
+        git_restore: git_restore {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_RESTORE";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_R &kp ES_E &kp ES_S &kp ES_T &kp ES_O &kp ES_R &kp ES_E &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_S &kp ES_O &kp ES_U &kp ES_R &kp ES_C &kp ES_E &kp ES_EQUAL &kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_SPACE &kp ES_MINUS &kp ES_MINUS &kp ES_SPACE>;
+        };
+
+        // Git Workflows
+
+        git_add_commit: git_add_commit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_ADD_COMMIT";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_DOT &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT>;
+        };
+
+        git_add_commit_push: git_add_commit_push {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_ADD_COMMIT_PUSH";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_DOT &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT>;
+        };
+
+        git_stash_pull_pop: git_stash_pull_pop {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_STASH_PULL_POP";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_S &kp ES_T &kp ES_A &kp ES_S &kp ES_H &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_L &kp ES_L &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_S &kp ES_T &kp ES_A &kp ES_S &kp ES_H &kp ES_SPACE &kp ES_P &kp ES_O &kp ES_P &kp ES_SPACE>;
+        };
+
+        // Git Flow Prefixes
+
+        git_flow_feature: git_flow_feature {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_FLOW_FEATURE";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_F &kp ES_L &kp ES_O &kp ES_W &kp ES_SPACE &kp ES_F &kp ES_E &kp ES_A &kp ES_T &kp ES_U &kp ES_R &kp ES_E &kp ES_SPACE>;
+        };
+
+        git_flow_release: git_flow_release {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_FLOW_RELEASE";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_F &kp ES_L &kp ES_O &kp ES_W &kp ES_SPACE &kp ES_R &kp ES_E &kp ES_L &kp ES_E &kp ES_A &kp ES_S &kp ES_E &kp ES_SPACE>;
+        };
+
+        git_flow_hotfix: git_flow_hotfix {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "GIT_FLOW_HOTFIX";
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_F &kp ES_L &kp ES_O &kp ES_W &kp ES_SPACE &kp ES_H &kp ES_O &kp ES_T &kp ES_F &kp ES_I &kp ES_X &kp ES_SPACE>;
+        };
+
+        // Control Commands
+
+        cmd_start: cmd_start {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "CMD_START";
+            bindings = <&kp ES_S &kp ES_T &kp ES_A &kp ES_R &kp ES_T &kp ES_SPACE>;
+        };
+
+        cmd_finish: cmd_finish {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "CMD_FINISH";
+            bindings = <&kp ES_F &kp ES_I &kp ES_N &kp ES_I &kp ES_S &kp ES_H &kp ES_SPACE>;
+        };
+
+        cmd_publish: cmd_publish {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "CMD_PUBLISH";
+            bindings = <&kp ES_P &kp ES_U &kp ES_B &kp ES_L &kp ES_I &kp ES_S &kp ES_H &kp ES_SPACE>;
+        };
+
+        // References
+
+        ref_head: ref_head {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "REF_HEAD";
+            bindings = <&kp ES_H &kp ES_E &kp ES_A &kp ES_D &kp ES_SPACE>;
+        };
+
+        // Conventional Commit Prefixes
+
+        commit_feat: commit_feat {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_FEAT";
+            bindings = <&kp ES_F &kp ES_E &kp ES_A &kp ES_T &kp ES_COLON &kp ES_SPACE>;
+        };
+
+        commit_fix: commit_fix {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_FIX";
+            bindings = <&kp ES_F &kp ES_I &kp ES_X &kp ES_COLON &kp ES_SPACE>;
+        };
+
+        commit_refactor: commit_refactor {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_REFACTOR";
+            bindings = <&kp ES_R &kp ES_E &kp ES_F &kp ES_A &kp ES_C &kp ES_T &kp ES_O &kp ES_R &kp ES_COLON &kp ES_SPACE>;
+        };
+
+        commit_docs: commit_docs {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_DOCS";
+            bindings = <&kp ES_D &kp ES_O &kp ES_C &kp ES_S &kp ES_COLON &kp ES_SPACE>;
+        };
+
+        commit_style: commit_style {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_STYLE";
+            bindings = <&kp ES_S &kp ES_T &kp ES_Y &kp ES_L &kp ES_E &kp ES_COLON &kp ES_SPACE>;
+        };
+
+        commit_test: commit_test {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_TEST";
+            bindings = <&kp ES_T &kp ES_E &kp ES_S &kp ES_T &kp ES_COLON &kp ES_SPACE>;
+        };
+
+        commit_chore: commit_chore {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            label = "COMMIT_CHORE";
+            bindings = <&kp ES_C &kp ES_H &kp ES_O &kp ES_R &kp ES_E &kp ES_COLON &kp ES_SPACE>;
+        };
+
+        // Tap Dance Behaviors for Git Flow and Conventional Commits
+
+        td_git_flow_feature: td_git_flow_feature {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_FLOW_FEATURE";
+            tapping-term-ms = <250>;
+            bindings = <&git_flow_feature>, <&commit_feat>;
+        };
+
+        td_git_flow_hotfix: td_git_flow_hotfix {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_FLOW_HOTFIX";
+            tapping-term-ms = <250>;
+            bindings = <&git_flow_hotfix>, <&commit_fix>;
+        };
+
+        td_git_diff: td_git_diff {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_DIFF";
+            tapping-term-ms = <250>;
+            bindings = <&git_diff>, <&commit_docs>;
+        };
+
+        td_git_stash: td_git_stash {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_STASH";
+            tapping-term-ms = <250>;
+            bindings = <&git_stash>, <&commit_style>;
+        };
+
+        td_git_restore: td_git_restore {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_RESTORE";
+            tapping-term-ms = <250>;
+            bindings = <&git_restore>, <&commit_refactor>;
+        };
+
+        td_git_stash_pull: td_git_stash_pull {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_STASH_PULL";
+            tapping-term-ms = <250>;
+            bindings = <&git_stash>, <&commit_test>;
+        };
+
+        td_git_commit: td_git_commit {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_GIT_COMMIT";
+            tapping-term-ms = <250>;
+            bindings = <&git_commit>, <&commit_chore>;
+        };
+
+        td_commit_fix: td_commit_fix {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            label = "TD_COMMIT_FIX";
+            tapping-term-ms = <250>;
+            bindings = <&kp ES_X>, <&commit_fix>;
         };
     };
 
@@ -237,21 +543,21 @@
         esp_layer {
             display-name = "ESP";
             bindings = <
-&kp F12              &kp F1            &kp F2            &kp F3                &kp F4              &kp F5                                       &kp F6     &kp F7               &kp F8                 &kp F9            &kp F10            &kp F11
-&kp ES_SINGLE_QUOTE  &kp Q             &kp W             &kp E                 &kp R               &kp T                                        &kp Y      &kp U                &kp I                  &kp O             &kp ES_ACUTE       &kp DELETE
-&kp ES_MINUS         &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                        &kp H      &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI P  &kp ES_COLON
-&kp ES_UNDER         &kp Z             &kp X             &kp C                 &kp V               &kp B           &none        &kp ES_N_TILDE  &kp N      &kp M                &kp ES_COMMA           &kp ES_DOT        &kp ES_SLASH       &kp ES_BACKSLASH
-                                       &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_ES  &kp SPACE    &kp BACKSPACE   &mo RAISE  &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
+&kp F12              &kp F1            &kp F2            &kp F3                &kp F4              &kp F5                                            &kp F6  &kp F7               &kp F8                 &kp F9            &kp F10            &kp F11
+&kp ES_SINGLE_QUOTE  &kp Q             &kp W             &kp E                 &kp R               &kp T                                             &kp Y   &kp U                &kp I                  &kp O             &kp ES_ACUTE       &kp DELETE
+&kp ES_MINUS         &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                             &kp H   &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI P  &kp ES_COLON
+&kp ES_UNDER         &kp Z             &kp X             &kp C                 &kp V               &kp B   &none                     &kp ES_N_TILDE  &kp N   &kp M                &kp ES_COMMA           &kp ES_DOT        &kp ES_SLASH       &kp ES_BACKSLASH
+                                       &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo 1   &mt_space LSHIFT SPACE    &kp BACKSPACE   &mo 4   &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
             >;
         };
 
         sym_esp_layer {
             display-name = "SYM ESP";
             bindings = <
-&kp F12               &kp F1                &kp F2              &kp F3                  &kp F4                &kp F5                                               &kp F6        &kp F7                       &kp F8                     &kp F9             &kp F10                &kp F11
-&kp ES_DOUBLE_QUOTES  &kp ES_AT             &kp ES_N1           &kp ES_N2               &kp ES_N3             &kp ES_FEMININE_ORDINAL_INDICATOR                    &kp ES_GT     &td_paren_es                 &td_bracket_es             &td_brace_es       &kp ES_TILDE           &kp SPACE
-&kp ES_PLUS           &hm LEFT_GUI ES_HASH  &hm LEFT_ALT ES_N4  &hm LEFT_CONTROL ES_N5  &hm LEFT_SHIFT ES_N6  &kp ES_MASCULINE_ORDINAL_INDICATOR                   &kp ES_EQUAL  &hm RIGHT_SHIFT ES_QUESTION  &hm RIGHT_CONTROL ES_EXCL  &hm LALT ES_AMPS   &hm RIGHT_GUI ES_PIPE  &kp ES_SEMI
-&kp ES_GRAVE          &kp ES_DOLLAR         &kp ES_N7           &kp ES_N8               &kp ES_N9             &kp ES_N0                           &none    &none   &kp ES_LT     &kp ES_PLUS                  &kp ES_STAR                &kp ES_CARET       &kp ES_PERCENT         &none
+&kp F12               &kp F1                &kp F2              &kp F3                  &kp F4                &kp F5                                               &kp F6        &kp F7                       &kp F8                     &kp F9            &kp F10                &kp F11
+&kp ES_DOUBLE_QUOTES  &kp ES_AT             &kp ES_N1           &kp ES_N2               &kp ES_N3             &kp ES_COMMA                    &kp ES_GT     &td_paren_es                 &td_bracket_es             &td_brace_es      &kp ES_TILDE           &kp SPACE
+&kp ES_PLUS           &hm LEFT_GUI ES_HASH  &hm LEFT_ALT ES_N4  &hm LEFT_CONTROL ES_N5  &hm LEFT_SHIFT ES_N6  &kp ES_DOT                   &kp ES_EQUAL  &hm RIGHT_SHIFT ES_QUESTION  &hm RIGHT_CONTROL ES_EXCL  &hm LALT ES_AMPS  &hm RIGHT_GUI ES_PIPE  &kp ES_SEMI
+&kp ES_GRAVE          &kp ES_DOLLAR         &kp ES_N7           &kp ES_N8               &kp ES_N9             &kp ES_N0                           &none    &none   &kp ES_LT     &kp ES_PLUS                  &kp ES_STAR                &kp ES_CARET      &kp ES_PERCENT         &none
                                             &none               &none                   &none                 &none                               &none    &trans  &trans        &none                        &none                      &none
             >;
         };
@@ -259,33 +565,33 @@
         eng_layer {
             display-name = "ENG";
             bindings = <
-&kp F12    &kp F1            &kp F2            &kp F3                &kp F4              &kp F5                                       &kp F6     &kp F7               &kp F8                 &kp F9            &kp F10            &kp F11
-&kp SQT    &kp Q             &kp W             &kp E                 &kp R               &kp T                                        &kp Y      &kp U                &kp I                  &kp O             &kp SEMI           &kp DELETE
-&kp MINUS  &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                        &kp H      &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI P  &kp COLON
-&kp UNDER  &kp Z             &kp X             &kp C                 &kp V               &kp B           &none        &kp TILDE       &kp N      &kp M                &kp COMMA              &kp DOT           &kp SLASH          &kp BACKSLASH
-                                                      &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo SYMBOLS_EN  &kp SPACE    &kp BACKSPACE   &mo RAISE  &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
+&kp F12    &kp F1            &kp F2            &kp F3                &kp F4              &kp F5                                           &kp F6  &kp F7               &kp F8                 &kp F9            &kp F10            &kp F11
+&kp SQT    &kp Q             &kp W             &kp E                 &kp R               &kp T                                            &kp Y   &kp U                &kp I                  &kp O             &kp SEMI           &kp DELETE
+&kp MINUS  &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G                                            &kp H   &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r LEFT_ALT L  &hm_r RIGHT_GUI P  &kp COLON
+&kp UNDER  &kp Z             &kp X             &kp C                 &kp V               &kp B   &none                     &kp TILDE      &kp N   &kp M                &kp COMMA              &kp DOT           &kp SLASH          &kp BACKSLASH
+                             &kp HOME          &kp UP_ARROW          &kp DOWN_ARROW      &mo 3   &mt_space LSHIFT SPACE    &kp BACKSPACE  &mo 4   &kp LEFT_ARROW       &kp RIGHT_ARROW        &kp END
             >;
         };
 
         sym_eng_layer {
             display-name = "SYM ENG";
             bindings = <
-&kp F12     &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                                     &kp F6            &kp F7                    &kp F8                  &kp F9          &kp F10             &kp F11
-&kp DQT     &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &kp RBRC                                   &kp GREATER_THAN  &td_paren_en              &td_bracket_en          &td_brace_en    &kp TILDE           &kp SPACE
-&kp PLUS    &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &kp LBRC                                   &kp EQUAL         &hm RIGHT_SHIFT QUESTION  &hm RIGHT_CONTROL EXCL  &hm LALT AMPS   &hm RIGHT_GUI PIPE  &kp SEMI
-&kp GRAVE   &kp DOLLAR         &kp N7                 &kp N8               &kp N9                   &kp N0     &none    &none               &kp LESS_THAN     &kp PLUS                  &kp STAR                &kp CARET       &kp PERCENT         &none
-                                                      &none                  &none                &none                    &none      &none    &trans  &trans            &none                     &none                   &none
+&kp F12    &kp F1             &kp F2                 &kp F3               &kp F4                   &kp F5                     &kp F6            &kp F7                    &kp F8                  &kp F9         &kp F10             &kp F11
+&kp DQT    &kp AT             &kp NUMBER_1           &kp NUMBER_2         &kp NUMBER_3             &kp COMMA                   &kp GREATER_THAN  &td_paren_en              &td_bracket_en          &td_brace_en   &kp TILDE           &kp SPACE
+&kp PLUS   &hm LEFT_GUI HASH  &hm LEFT_ALT NUMBER_4  &hm LEFT_CONTROL N5  &hm LEFT_SHIFT NUMBER_6  &kp DOT                   &kp EQUAL         &hm RIGHT_SHIFT QUESTION  &hm RIGHT_CONTROL EXCL  &hm LALT AMPS  &hm RIGHT_GUI PIPE  &kp SEMI
+&kp GRAVE  &kp DOLLAR         &kp N7                 &kp N8               &kp N9                   &kp N0    &none    &none   &kp LESS_THAN     &kp PLUS                  &kp STAR                &kp CARET      &kp PERCENT         &none
+                              &none                  &none                &none                    &none     &none    &trans  &trans            &none                     &none                   &none
             >;
         };
 
         nav_layer {
             display-name = "NAV";
             bindings = <
-&none  &none  &none           &none           &none            &none                     &none      &none           &none           &none            &none  &none
-&none  &none  &none           &mmv MOVE_UP    &none            &none                     &kp PG_UP  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none  &none
-&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp CLCK                  &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none
-&none  &none  &none           &none           &none            &none     &none    &none  &none      &none           &none           &none            &none  &none
-              &none           &none           &none            &trans    &none    &none  &none      &none           &none           &none
+&none     &none    &none         &none           &none          &none                           &none      &none           &none           &none            &none      &none
+&none     &none    &none         &kp UP_ARROW    &kt LSHIFT     &msc SCRL_UP                    &kp PG_UP  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none      &none
+&kp HOME  &kp END  &kp LC(LEFT)  &kp DOWN_ARROW  &kp LC(RIGHT)  &msc SCRL_DOWN                  &kp PG_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp LCLK  &mkp RCLK
+&none     &none    &none         &none           &none          &none           &none    &none  &none      &none           &none           &none            &none      &none
+                   &none         &none           &none          &trans          &none    &none  &none      &none           &none           &none
             >;
         };
 
@@ -294,9 +600,20 @@
             bindings = <
 &bt BT_CLR_ALL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &to 0  &to 2  &none  &none  &none  &none
 &ext_power EP_TOG  &none         &none         &none         &none         &studio_unlock                  &none  &none  &none  &none  &none  &none
-&none              &none         &none         &none         &none         &none                           &none  &none  &none  &none  &none  &none
+&none              &none         &none         &none         &none         &to GIT_ESP                     &none  &none  &none  &none  &none  &none
 &none              &none         &none         &none         &none         &none           &none    &none  &none  &none  &none  &none  &none  &none
                                  &none         &none         &none         &none           &none    &none  &none  &none  &none  &none
+            >;
+        };
+
+    git_esp_layer {
+        display-name = "GIT ESP";
+        bindings = <
+&trans  &trans           &trans                &trans          &trans                &trans                         &trans               &trans              &trans        &trans         &trans     &trans
+&trans              &git_add_commit   &git_add_commit_push &git_fetch        &td_git_restore     &td_git_stash                                &td_git_stash_pull  &git_push_upstream   &cmd_publish           &git_checkout     &kp LC(DELETE)     &trans
+&trans  &git_add_all     &git_status           &td_git_diff    &td_git_flow_feature  &git_log                       &td_git_flow_hotfix  &cmd_start          &cmd_finish   &git_pull      &git_push  &trans
+&trans  &git_reset_soft  &td_commit_fix        &td_git_commit  &git_flow_release     &git_branch  &trans    &trans  &trans               &ref_head           &trans        &trans         &trans     &trans
+                         &trans                &trans          &trans                &trans       &to 0     &trans  &trans               &trans              &trans        &trans
             >;
         };
     };
