@@ -610,8 +610,8 @@
         display-name = "GIT ESP";
         bindings = <
 &trans  &trans           &trans                &trans          &trans                &trans                         &trans               &trans              &trans        &trans         &trans     &trans
-&trans              &git_add_commit   &git_add_commit_push &git_fetch        &git_restore        &git_stash                                   &git_stash_pull_pop &git_push_upstream   &cmd_start             &git_checkout     &kp LC(DELETE)     &trans
-&trans  &git_add_all     &git_status           &td_git_diff    &td_git_flow_feature  &git_log                       &td_git_flow_hotfix  &cmd_finish         &cmd_publish  &git_pull      &git_push  &trans
+&trans              &git_add_commit   &git_add_commit_push &git_fetch        &git_restore        &git_stash                                   &git_stash_pull_pop &git_push_upstream   &cmd_publish           &git_checkout     &kp LC(DELETE)     &trans
+&trans  &git_add_all     &git_status           &td_git_diff    &td_git_flow_feature  &git_log                       &td_git_flow_hotfix  &cmd_start          &cmd_finish   &git_pull      &git_push  &trans
 &trans  &git_reset_soft  &td_commit_fix        &td_git_commit  &git_flow_release     &git_branch  &trans    &trans  &trans               &ref_head           &trans        &trans         &trans     &trans
                          &trans                &trans          &trans                &trans       &to 0     &trans  &trans               &trans              &trans        &trans
             >;
