@@ -123,7 +123,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_TAP_SPACE";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
@@ -476,7 +476,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             label = "TD_GIT_FLOW_FEATURE";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&git_flow_feature>, <&commit_feat>;
         };
 
@@ -484,7 +484,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             label = "TD_GIT_FLOW_HOTFIX";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&git_flow_hotfix>, <&commit_fix>;
         };
 
@@ -492,7 +492,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             label = "TD_GIT_DIFF";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&git_diff>, <&commit_docs>;
         };
 
@@ -500,7 +500,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             label = "TD_GIT_STASH";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&git_stash>, <&commit_style>;
         };
 
@@ -508,7 +508,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             label = "TD_GIT_RESTORE";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&git_restore>, <&commit_refactor>;
         };
 
@@ -516,7 +516,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             label = "TD_GIT_STASH_PULL";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&git_stash>, <&commit_test>;
         };
 
@@ -524,7 +524,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             label = "TD_GIT_COMMIT";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&git_commit>, <&commit_chore>;
         };
 
@@ -532,7 +532,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             label = "TD_COMMIT_FIX";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             bindings = <&kp ES_X>, <&commit_fix>;
         };
     };
