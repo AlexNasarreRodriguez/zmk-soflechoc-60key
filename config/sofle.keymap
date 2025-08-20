@@ -249,7 +249,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             label = "GIT_ADD_ALL";
-            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_MINUS &kp ES_A &kp ES_SPACE>;
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_DOT &kp ES_SPACE>;
         };
 
         git_commit: git_commit {
@@ -342,14 +342,14 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             label = "GIT_ADD_COMMIT";
-            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_MINUS &kp ES_A &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT>;
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_DOT &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT>;
         };
 
         git_add_commit_push: git_add_commit_push {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             label = "GIT_ADD_COMMIT_PUSH";
-            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_MINUS &kp ES_A &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT &kp RIGHT &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_P &kp ES_U &kp ES_S &kp ES_H &kp ES_SPACE &kp ES_MINUS &kp ES_U &kp ES_SPACE &kp ES_O &kp ES_R &kp ES_I &kp ES_G &kp ES_I &kp ES_N &kp ES_SPACE &kp ES_H &kp ES_E &kp ES_A &kp ES_D>;
+            bindings = <&kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_A &kp ES_D &kp ES_D &kp ES_SPACE &kp ES_DOT &kp ES_SPACE &kp ES_AMPS &kp ES_AMPS &kp ES_SPACE &kp ES_G &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_C &kp ES_O &kp ES_M &kp ES_M &kp ES_I &kp ES_T &kp ES_SPACE &kp ES_MINUS &kp ES_M &kp ES_SPACE &kp ES_DQT &kp ES_DQT &kp LEFT>;
         };
 
         git_stash_pull_pop: git_stash_pull_pop {
@@ -601,11 +601,11 @@
             >;
         };
 
-        git_esp_layer {
-            display-name = "GIT ESP";
-            bindings = <
+    git_esp_layer {
+        display-name = "GIT ESP";
+        bindings = <
 &trans  &trans           &trans                &trans          &trans                &trans                         &trans               &trans              &trans        &trans         &trans     &trans
-&trans  &git_add_commit  &git_add_commit_push  &git_fetch      &git_restore          &git_stash                     &git_stash_pull_pop  &git_push_upstream  &cmd_start    &git_checkout  &trans     &trans
+&trans              &git_add_commit   &git_add_commit_push &git_fetch        &git_restore        &git_stash                                   &git_stash_pull_pop &git_push_upstream   &cmd_start             &git_checkout     &kp LC(DELETE)     &trans
 &trans  &git_add_all     &git_status           &td_git_diff    &td_git_flow_feature  &git_log                       &td_git_flow_hotfix  &cmd_finish         &cmd_publish  &git_pull      &git_push  &trans
 &trans  &git_reset_soft  &td_commit_fix        &td_git_commit  &git_flow_release     &git_branch  &trans    &trans  &trans               &ref_head           &trans        &trans         &trans     &trans
                          &trans                &trans          &trans                &trans       &to 0     &trans  &trans               &trans              &trans        &trans
