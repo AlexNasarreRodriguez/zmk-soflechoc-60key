@@ -81,6 +81,11 @@
             bindings = <&caps>;
             key-positions = <28 31>;
         };
+
+        shifted_enter_combo {
+            bindings = <&mt RC(LEFT_ALT) LS(ENTER)>;
+            key-positions = <32 33>;
+        };
     };
 
     /*
