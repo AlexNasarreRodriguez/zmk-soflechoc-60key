@@ -539,7 +539,7 @@
 
     keymap {
         compatible = "zmk,keymap";
-g
+
         esp_layer {
             display-name = "ESP";
             bindings = <
