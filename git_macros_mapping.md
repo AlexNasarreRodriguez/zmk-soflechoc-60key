@@ -27,9 +27,9 @@
 - **H** → `git flow hotfix `
 
 ### Comandos de Control
-- **I** → `start `
-- **J** → `finish `
-- **K** → `publish `
+- **J** → `start `
+- **K** → `finish `
+- **I** → `publish `
 
 ### Referencias de Rama Actual
 - **M** → `HEAD`
