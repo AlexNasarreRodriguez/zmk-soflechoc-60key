@@ -1,15 +1,22 @@
-# lista de feauters que hay que añadir
+# Lista de Features que Hay que Añadir
 
-- [ ] añadir macro de texto para prommts en el estilo dentro del editor de windsurf, este macros estara centrado en porporcionar una plantilla para poder transmitirle a la una explicacion exacta de lo que se requiere de forma rapida y universal para funciones, se podria estructurar de la siguiente mantera 
+- [ ] Añadir macro de texto para prompts en el estilo del editor de Windsurf. Este macro estará centrado en proporcionar una plantilla para poder transmitir a la IA una explicación exacta de lo que se requiere de forma rápida y universal para funciones. Se podría estructurar de la siguiente manera:
 
- ```
- entrada: (aqui dentro se describirian los parametros de entrada en a la funcion sus tipos )
- salida: (aqui dentro se describirian los parametros de salida en a la funcion sus tipos )
- explicacion: (aqui dentro se describiria la explicacion de la funcion deseada)
-  alomejor convendria parametros opcionales como nombre o algo
- ```
+```
+entrada: (aquí dentro se describirían los parámetros de entrada a la función y sus tipos)
+salida: (aquí dentro se describirían los parámetros de salida de la función y sus tipos)
+explicacion: (aquí dentro se describiría la explicación de la función deseada)
+  - A lo mejor convendría parámetros opcionales como nombre o algo
+```
 
-- [ ] añadir el caracter  \`
+- [ ] Añadir el carácter \`
 
-- [ ] añadir en la capa de simbolos, en la seccion de las flechas izquierda y derecha, los caracteres `home` y `end`
- 
+- [ ] Añadir en la capa de símbolos, en la sección de las flechas izquierda y derecha, los caracteres `Home` y `End`
+
+- [ ] Opción de macro para poder activar el flujo de filtrado y activación del MCP de notas
+- [ ] poner la barra baja en el espejo de la ñ para mayor comodidad
+- [ ] shortcut para el caracte de _ de forma que es mas comodo de usar sugerencia combo space y delete 
+
+- [ ] teclas de volumen y de mute o unmute  
+
+- [ ] poner el uso de ~ de forma mas comoda ya que hay que pulsar dos veces para crearlo y crea dos caracteres de golpe
